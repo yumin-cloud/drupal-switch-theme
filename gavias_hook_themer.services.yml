@@ -1,0 +1,10 @@
+services:
+  gavias_hook_themer.twig_extension:
+    class: Drupal\gavias_hook_themer\TwigExtension
+    arguments: ['@entity_type.manager', '@token', '@config.factory', '@current_route_match', '@menu.link_tree', '@menu.active_trail']
+    tags:
+      - { name: twig.extension }
+  theme.negotiator.gavias_hook_themer:
+    class: Drupal\gavias_facdori\Theme\ThemeNegotiator
+    tags:
+      - { name: theme_negotiator, priority: 0 }
